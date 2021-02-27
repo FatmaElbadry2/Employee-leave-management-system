@@ -1,0 +1,74 @@
+ div{
+    font-family: 'Yusei Magic', sans-serif;
+    
+}
+/*
+.title{
+    font-size:xx-large;
+    text-align: center;
+    font-weight: bolder;
+    top: 50%;
+   
+}
+.sub{
+    font-size: large;
+    text-align: center;
+    font-weight: 900;
+}
+.home{
+    background: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url('../../assets/b1.jpg');
+  background-size: cover;
+  height: 100vh;
+  width:100vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  
+} */
+
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900);
+
+body {
+  /* background: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    
+    url('../../assets/banner.jpg'); */
+  
+  background-size: cover;
+  font-family: 'Yusei Magic', sans-serif;
+}
+
+header {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(24, 23, 23);
+  text-align: center;
+  font-family: 'Yusei Magic', sans-serif;
+}
+h1 {
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 3rem;
+  white-space: nowrap;
+}
+p {
+  margin: 0;
+  font-size: 1rem;
+}
+.vl{
+  border-left: 2px solid black;
+  height: 600px;
+}
