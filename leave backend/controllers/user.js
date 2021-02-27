@@ -69,4 +69,23 @@ router.post('/login', (req,res) => {
 
 });
 
+
+
+router.get('/getmanagers',(req,res)=>{
+
+    user_services.get_managers(found=>{
+        res.json(found)
+    }); 
+   
+});
+
+router.get('/getmyemployees',passport.authenticate('jwt',{session:false}),Roles(['manager']),(req,res)=>{
+    
+    let id=req.user.dataValues.id;
+    user_services.get_emp_of_manager(id,found=>{
+        res.json(found)
+    }); 
+   
+});
+
 module.exports = router;

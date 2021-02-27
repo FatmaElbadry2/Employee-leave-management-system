@@ -37,6 +37,22 @@ const registerUser = (user, callback) => {
     })
 };
 
+const get_managers=(callback)=>{
+ User.findAll({where:{role:'manager'}}).then(managers=>{
+    callback(managers);
+}).catch(err=>{
+    callback(err.errors);
+})
+}
+
+const get_emp_of_manager=(id,callback)=>{
+    User.findAll({where:{UserId:id}}).then(managers=>{
+        callback(managers);
+    }).catch(err=>{
+        callback(err.errors);
+    })
+
+}
 
 const comparePassword = (password, hash, callback) => {
     bcrypt.compare(password, hash, (err, isMatch) => {
@@ -44,4 +60,4 @@ const comparePassword = (password, hash, callback) => {
     })
 };
 
-module.exports = { comparePassword, registerUser};
+module.exports = { comparePassword, registerUser,get_managers,get_emp_of_manager};
