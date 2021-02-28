@@ -30,10 +30,10 @@ const view_my_requests= (mreq,callback)=>{
             UserId:mreq.id,
             status: mreq.status == null? {
                 [Op.ne]: null
-              } :  mreq.status,
+              } : { [Op.or]:mreq.status},
             reason: mreq.reason == null ? {
                 [Op.ne]: null
-              } : mreq.reason,
+              } : {[Op.or]:mreq.reason},
             startdate: mreq.startdate==null?{
                 [Op.ne]:null
             }:{[Op.gte]: mreq.startdate},
@@ -51,17 +51,18 @@ const view_my_requests= (mreq,callback)=>{
 const view_employees_requests=(request,callback)=>{
     Request.findAll({
         include:[User],
+        attributes: { exclude: ['$User.password$'] },
         where:{
            '$User.UserId$' :request.manager_id,
            '$User.username$':request.employee ==null ? {
             [Op.ne]: null
-          } : request.employee,
+          } : {[Op.or]:request.employee},
             status: request.status ==null ? {
             [Op.ne]: null
-          } : request.status,
+          } :{[Op.or]: request.status},
           reason: request.reason == null ? {
             [Op.ne]: null
-          } : request.reason,
+          } : {[Op.or]:request.reason},
           startdate: request.startdate== null?{
             [Op.ne]: null
         }:{[Op.gte]: request.startdate},

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Button, message,Checkbox,Card } from 'antd';
+import { Form, Input, Button, message,Card } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import axios from "../../axios-user";
 import { withRouter } from "react-router-dom";
@@ -23,10 +23,7 @@ class NormalLoginForm extends React.Component{
   }}
 
 login= data =>{
-  const user = {
-    username:this.state.username,
-    password:this.state.password
-  };
+
     axios.post('/api/users/login',data).then( res=>{
       if (res.data.token!=null){
         const token=res.data.token;

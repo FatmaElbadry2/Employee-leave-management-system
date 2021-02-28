@@ -38,7 +38,7 @@ const registerUser = (user, callback) => {
 };
 
 const get_managers=(callback)=>{
- User.findAll({where:{role:'manager'}}).then(managers=>{
+ User.findAll({where:{role:'manager'}, attributes: ['username']}).then(managers=>{
     callback(managers);
 }).catch(err=>{
     callback(err.errors);
@@ -46,7 +46,7 @@ const get_managers=(callback)=>{
 }
 
 const get_emp_of_manager=(id,callback)=>{
-    User.findAll({where:{UserId:id}}).then(managers=>{
+    User.findAll({where:{UserId:id},attributes: ['username']}).then(managers=>{
         callback(managers);
     }).catch(err=>{
         callback(err.errors);

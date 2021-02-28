@@ -1,8 +1,7 @@
 import React from 'react';
-import b1 from '../../assets/b1.jpg';
+
 import './home.css';
-import { Row, Col,Divider  } from 'antd';
-import NormalLoginForm from "../login/login";
+
 
 class Home extends React.Component {
   render() {

@@ -25,7 +25,7 @@ router.post('/createrequest',passport.authenticate('jwt',{session:false}),Roles(
    
 });
 
-router.get('/viewmyrequest',passport.authenticate('jwt',{session:false}),Roles(['employee']),(req,res)=>{
+router.post('/viewmyrequest',passport.authenticate('jwt',{session:false}),Roles(['employee']),(req,res)=>{
     let request={
         id:req.user.dataValues.id,
         reason:req.body.reason,
@@ -43,7 +43,7 @@ router.get('/viewmyrequest',passport.authenticate('jwt',{session:false}),Roles([
 
 
 
-router.get('/viewemprequest',passport.authenticate('jwt',{session:false}),Roles(['manager']),(req,res)=>{
+router.post('/viewemprequest',passport.authenticate('jwt',{session:false}),Roles(['manager']),(req,res)=>{
     let request={
         manager_id:req.user.dataValues.id,
         employee:req.body.employee,
